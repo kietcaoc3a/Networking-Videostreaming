@@ -29,6 +29,7 @@ class ServerWorker:
         self.clientInfo = clientInfo
 
     def run(self):
+        # create a new threads to listen for RTP packets
         threading.Thread(target=self.recvRtspRequest).start()
 
     def recvRtspRequest(self):
@@ -165,4 +166,3 @@ class ServerWorker:
             print("404 NOT FOUND")
         elif code == self.CON_ERR_500:
             print("500 CONNECTION ERROR")
-
